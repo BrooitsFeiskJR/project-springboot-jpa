@@ -1,5 +1,6 @@
 package com.springbootproject.Course.entities;
 
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
