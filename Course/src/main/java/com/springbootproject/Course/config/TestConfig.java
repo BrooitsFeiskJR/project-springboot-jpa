@@ -41,6 +41,11 @@ public class TestConfig implements CommandLineRunner {
         Product p4 = new Product(null, "PC Gamer", "Donec aliquet odio ac rhoncus cursus.", 1200.0, "");
         Product p5 = new Product(null, "Rails for Dummies", "Cras fringilla convallis sem vel faucibus.", 100.99, "");
 
+        Category cat1 = new Category(null, "Electronics");
+        Category cat2 = new Category(null, "Books");
+        Category cat3 = new Category(null, "Computers");
+
+
         User u1 = new User(null, "Rafaela Pavan", "rafaela@gmail.com", "988888888", "123456");
         User u2 = new User(null, "Matheus Rafanhin", "matheus@gmail.com", "977777777", "123456");
         User u3 = new User(null, "Igor Menezes", "igor@gmail.com", "977777777", "123456");
@@ -49,15 +54,23 @@ public class TestConfig implements CommandLineRunner {
         Order o2 = new Order(null, Instant.parse("2019-07-21T03:42:10Z"), OrderStatus.WAITING_PAYMENT, u2);
         Order o3 = new Order(null, Instant.parse("2019-07-22T15:21:22Z"), OrderStatus.WAITING_PAYMENT, u1);
 
-        Category cat1 = new Category(null, "Electronics");
-        Category cat2 = new Category(null, "Books");
-        Category cat3 = new Category(null, "Computers");
 
         userRepository.saveAll(Arrays.asList(u1, u2, u3));
 
         orderRepository.saveAll(Arrays.asList(o1, o2, o3));
 
         categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
+
+        p1.getCategories().add(cat2);
+
+        p2.getCategories().add(cat1);
+        p2.getCategories().add(cat3);
+
+        p3.getCategories().add(cat3);
+
+        p4.getCategories().add(cat3);
+
+        p5.getCategories().add(cat2);
 
         productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 

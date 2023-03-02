@@ -3,7 +3,7 @@ package com.springbootproject.Course.entities;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.springbootproject.Course.entities.enums.OrderStatus;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
