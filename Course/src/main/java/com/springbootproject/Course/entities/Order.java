@@ -1,6 +1,7 @@
 package com.springbootproject.Course.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.springbootproject.Course.entities.enums.OrderStatus;
 
 import jakarta.persistence.*;
@@ -85,6 +86,16 @@ public class Order implements Serializable {
 
     public void setPayment(Payment payment) {
         this.payment = payment;
+    }
+
+    public Double getTotal() {
+        double sum = 0.0;
+
+        for (OrderItem x : items) {
+            sum += x.getSubTotal();
+        }
+
+        return sum;
     }
 
     @Override
